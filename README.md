@@ -1,4 +1,4 @@
-Instructions for run lixy ruby application.
+Instructions for running lixy ruby application.
 
 - Open your command prompt or command line interface
 - Change directory into the project directory
