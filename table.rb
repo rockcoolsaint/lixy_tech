@@ -49,9 +49,25 @@ def displayTable(values)
 	end
 end
 
+def invalidInput(input)
+	number = input.to_i
+
+	if ((!number.is_a? Integer) || (number == 0))
+		if ARGV.first
+			puts "Invalid input, please make sure you pass an Integer greater than zero."
+		else
+			puts "Invalid input, please make sure you input a number greater than zero."
+		end
+		
+		exit(0)
+	end
+end
+
 primeTable = Table.new
 
 if ARGV.first
+	invalidInput(ARGV.first)
+
 	number = ARGV.first.to_i
 
 	values = primeTable.prime_numbers(number)
@@ -65,9 +81,12 @@ if ARGV.first
 	primeTable.multiply(values)
 else
 	prompt = "enter a number > "
-
 	print prompt 
+
 	num = gets.chomp!
+
+	invalidInput(num)
+
 	number = num.to_i
 
 	values = primeTable.prime_numbers(number)
